@@ -1,13 +1,20 @@
 import numpy as np
-import random as rd
 
 
-def cur(A: np.ndarray, n: int, seed: int) -> np.ndarray:
+def cur(A: np.ndarray, n: int, seed: int) -> tuple:
     """
     CUR decomposition
+    Args:
+        A: matrix to decompose
+        n: number of rows/columns to sample
+        seed: seed for random number generator
+    Returns:
+        C: matrix of left singular vectors
+        U: matrix of singular vectors
+        R: matrix of right singular vectors
     """
     # set random seed
-    rd.seed(seed)
+    np.random.seed(seed)
 
     # calculate the mean of each column
     A_sq = np.square(A)
@@ -30,7 +37,7 @@ def cur(A: np.ndarray, n: int, seed: int) -> np.ndarray:
     W = C[r_index]
 
     # calcualte U
-    X, sigma, Y = np.linalg.svd(W, n)
+    X, sigma, Y = np.linalg.svd(W, full_matrices=False)
     for i in range(len(sigma)):
         if sigma[i] == 0:
             continue
