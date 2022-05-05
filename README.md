@@ -5,6 +5,7 @@ In this project, we recommend new friends and their favorite songs to users base
 
 Project Organization
 ------------
+```
 .
 ├── .gitignore
 ├── LICENSE
@@ -51,7 +52,7 @@ Project Organization
     └── visualization
         ├── __init__.py
         └── visualize.py
-
+```
 
 --------
 
